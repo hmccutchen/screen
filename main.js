@@ -50,7 +50,8 @@
 // }
 
 class Fighter {
-  constructor(){
+  constructor(name){
+    this.name = name;
     this.speed = 20;
       }
 
@@ -58,54 +59,53 @@ class Fighter {
 
 class Bjj extends Fighter{
   constructor(name){
-    super();
-    this.name = name;
+    super(name);
+    // this.name = name;
     this.speed += 30;
-  }
-  screen(fighter){
-    for(x in fighter){
-      var x = document.getElementById('fight-name');
-      var y = document.getElementById('fight-speed');
-      x.innerHTML = `Name: ${this.name}`
-      y.innerHTML =`speed: ${this.speed}`;
-    }
+    screenUpdate(this);
   }
 }
 
 
 class MuyThai extends Fighter {
   constructor(name){
-    super();
-    this.name = name;
+    super(name);
+    // this.name = name;
     this.speed += 50;
+    screenUpdate(this);
   }
+
 }
 
 
 class Wrestler extends Fighter{
   constructor(name){
-    super()
-    this.name = name;
+    super(name)
+    // this.name = name;
       this.speed += 60;
+    screenUpdate(this);
   }
+
 }
 
 
 
 
-// for(name in Fighter){
-// var x = document.getElementById("fight-name");
+function screenUpdate(fighter){
+  var x = document.createElement("h1");
+  var y = document.createElement("p");
 
-// x.innerHTML = new Fighter(this.name);
+  var a = document.createTextNode(fighter.name);
+  var b = document.createTextNode(fighter.speed);
+x.appendChild(a);
+y.appendChild(b);
 
-// }
+  var c = document.getElementById("characters");
 
+  c.appendChild(x);
+  c.appendChild(y);
 
-
-
-
-
-
+}
 
 
 
